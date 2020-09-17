@@ -3,6 +3,12 @@ provider "aws" {
   region  = var.region
 }
 
+module "vpc" {
+  source  = "app.terraform.io/JEREMY-training/vpc/aws"
+  version = "2.51.0"
+  # insert required variables here make more deltas
+}
+
 resource aws_vpc "hashicat" {
   cidr_block           = var.address_space
   enable_dns_hostnames = true
